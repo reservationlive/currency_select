@@ -4,8 +4,8 @@ module ActionView
     module FormOptionsHelper
       # Return select and option tags for the given object and method, using
       # currency_options_for_select to generate the list of option tags.
-      def currency_select(object, method, priority_currency = nil, options = {}, html_options = {})
-        InstanceTag.new(object, method, self, options.delete(:object)).to_currency_select_tag(priority_currency, options, html_options)
+      def currency_select(object, method, priority_currencies = nil, options = {}, html_options = {})
+        InstanceTag.new(object, method, self, options.delete(:object)).to_currency_select_tag(priority_currencies, options, html_options)
       end
       
       # Returns a string of option tags. Supply a currency name as +selected+ 
@@ -19,7 +19,7 @@ module ActionView
       def currency_options_for_select(selected = nil, priority_currencies = nil)
         currency_options = ""
 
-        if priority_currency
+        if priority_currencies
           currency_options += options_for_select(priority_currencies, selected)
           currency_options += "<option value=\"\" disabled=\"disabled\">Please select...</option>\n"
         end
@@ -196,7 +196,7 @@ module ActionView
     end
     
     class InstanceTag
-      def to_currency_select_tag(priority_currencie, options, html_options)
+      def to_currency_select_tag(priority_currencies, options, html_options)
         html_options = html_options.stringify_keys
         add_default_name_and_id(html_options)
         value = value(object)
@@ -210,7 +210,7 @@ module ActionView
     end
     
     class FormBuilder
-      def currency_select(method, priority_currency = nil, options = {}, html_options = {})
+      def currency_select(method, priority_currencies = nil, options = {}, html_options = {})
         @template.currency_select(@object_name, method, priority_currencies, options.merge(:object => @object), html_options)
       end
     end
