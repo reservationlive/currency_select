@@ -21,7 +21,7 @@ module ActionView
 
         if priority_currencies
           currency_options += options_for_select(priority_currencies, selected)
-          currency_options += "<option value=\"\" disabled=\"disabled\">Please select...</option>\n"
+          currency_options += "<option value=\"\" disabled=\"disabled\">------</option>\n"
         end
 
         return currency_options + options_for_select(CURRENCIES, selected)
