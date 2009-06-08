@@ -6,6 +6,12 @@ The value of the selected item is the ISO 4217 currency code for the selected cu
 
 This plugin is modified from the 'country and region select'  plugin on GitHub. (http://github.com/ihower/country_and_region_select/tree/master).
 
+## Installation
+
+To install this plugin in your Rails application, simply:
+
+script/plugin install git://github.com/gavinlaking/currency_select.git
+
 ## Example
 
 <%= currency_select :model, :currency, ["British Pound", "US Dollar"] %>
