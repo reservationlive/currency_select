@@ -1,0 +1,12 @@
+# .gitignore
+.tmproj
+.DS_Store
+log/*.log
+tmp/**/*
+config/database.yml
+db/*.sqlite3
+db/schema.rb
+public/system
+public/assets
+vendor/gems
+log/ferret_server.out
