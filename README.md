@@ -8,4 +8,6 @@ This plugin is modified from the 'country and region select'  plugin on GitHub. 
 
 ## Example
 
-    currency_select("currency", "currency_name")
+<%= currency_select :model, :currency, ["British Pound", "US Dollar"] %>
+
+(In the above example, 'British Pound' and 'US Dollar' are priority currencies, meaning they appear at the top of the list of currencies.)
