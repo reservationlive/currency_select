@@ -1,1 +1,1 @@
-require 'country_select'
+require 'currency_select'
